@@ -37,7 +37,7 @@ jobs:
             /tmp/scaffold
           cp -r /tmp/scaffold/android .
 
-      - name: Preparar AndroidManifest
+      - name: Preparar AndroidManifest e arquivos de build
         run: python3 scripts/prepare_android.py
 
       - name: Instalar dependências
