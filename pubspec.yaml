@@ -14,6 +14,7 @@ dependencies:
   url_launcher: ^6.2.5
   flutter_pdfview: ^1.3.3
   just_audio: ^0.9.40
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
