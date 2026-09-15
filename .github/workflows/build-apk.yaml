@@ -48,18 +48,17 @@ jobs:
           mv build/app/outputs/flutter-apk/app-release.apk \
              build/app/outputs/flutter-apk/acervo-itaborai-${{ github.ref_name }}.apk
 
-      - name: Criar Release e anexar APK
+      - name: Salvar APK como artifact (sempre)
+        uses: actions/upload-artifact@v4
+        with:
+          name: acervo-itaborai-apk
+          path: build/app/outputs/flutter-apk/*.apk
+
+      - name: Criar Release e anexar APK (apenas para tags)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: build/app/outputs/flutter-apk/acervo-itaborai-*.apk
+          files: build/app/outputs/flutter-apk/*.apk
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Salvar APK como artefato (para builds manuais)
-        if: github.event_name == 'workflow_dispatch'
-        uses: actions/upload-artifact@v4
-        with:
-          name: apk-debug
-          path: build/app/outputs/flutter-apk/app-release.apk
