@@ -25,30 +25,28 @@ jobs:
       - name: Configurar Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.47.0'
+          flutter-version: '3.24.0'
           channel: 'stable'
           cache: true
 
-      - name: Instalar dependências
-        run: flutter pub get
-
-      - name: Gerar estrutura Android (temporário)
+      - name: Gerar estrutura Android
         run: |
           flutter create --platforms=android \
             --project-name acervo_itaborai \
             --org br.shop.memoriaitaboraiense \
             /tmp/scaffold
           cp -r /tmp/scaffold/android .
-          sed -i '/<application/i \    <uses-permission android:name="android.permission.INTERNET" \/>' android/app/src/main/AndroidManifest.xml
 
-      - name: Gerar ícones do App
+      - name: Preparar AndroidManifest
+        run: python3 scripts/prepare_android.py
+
+      - name: Instalar dependências
+        run: flutter pub get
+
+      - name: Gerar ícones
         run: dart run flutter_launcher_icons
 
-      - name: Alterar o nome do App (label)
-        run: |
-          sed -i 's/android:label="acervo_itaborai"/android:label="Acervo Itaboraiense"/' android/app/src/main/AndroidManifest.xml
-
-      - name: Build do APK (release)
+      - name: Build APK
         run: flutter build apk --release
 
       - name: Renomear APK
@@ -62,7 +60,7 @@ jobs:
           name: acervo-itaborai-apk
           path: build/app/outputs/flutter-apk/*.apk
 
-      - name: Criar Release e anexar APK
+      - name: Criar Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
