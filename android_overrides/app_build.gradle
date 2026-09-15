@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "br.shop.memoriaitaboraiense.acervoitaboraiense"
+    namespace = "br.shop.memoriaitaboraiense.acervo_itaborai"
     compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
@@ -19,8 +19,8 @@ android {
     }
 
     defaultConfig {
-        applicationId = "br.shop.memoriaitaboraiense.acervoitaboraiense"
-        minSdk = 21
+        applicationId = "br.shop.memoriaitaboraiense.acervo_itaborai"
+        minSdk = 24
         targetSdk = 35
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -30,6 +30,12 @@ android {
     buildTypes {
         release {
             signingConfig = signingConfigs.debug
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }
