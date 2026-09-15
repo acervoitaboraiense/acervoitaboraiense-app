@@ -32,7 +32,7 @@ jobs:
       - name: Gerar estrutura Android
         run: |
           flutter create --platforms=android \
-            --project-name acervo_itaborai \
+            --project-name acervoitaboraiense \
             --org br.shop.memoriaitaboraiense \
             /tmp/scaffold
           cp -r /tmp/scaffold/android .
@@ -42,6 +42,7 @@ jobs:
           cp android_overrides/settings.gradle android/settings.gradle
           cp android_overrides/app_build.gradle android/app/build.gradle
           cp android_overrides/gradle-wrapper.properties android/gradle/wrapper/gradle-wrapper.properties
+          cp android_overrides/proguard-rules.pro android/app/proguard-rules.pro
 
       - name: Preparar AndroidManifest
         run: python3 scripts/prepare_android.py
