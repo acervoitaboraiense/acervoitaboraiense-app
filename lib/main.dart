@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'drawer_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
@@ -806,8 +807,9 @@ class VisualizadorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const AppDrawer(),
       appBar: AppBar(
-        title: Text(titulo, overflow: TextOverflow.ellipsis),
+        title: const Text('Acervo Itaboraiense'),
         backgroundColor: kPrimary,
         foregroundColor: Colors.white,
       ),
