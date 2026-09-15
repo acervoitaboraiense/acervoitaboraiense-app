@@ -37,7 +37,13 @@ jobs:
             /tmp/scaffold
           cp -r /tmp/scaffold/android .
 
-      - name: Preparar AndroidManifest e arquivos de build
+      - name: Aplicar overrides do Android
+        run: |
+          cp android_overrides/settings.gradle android/settings.gradle
+          cp android_overrides/app_build.gradle android/app/build.gradle
+          cp android_overrides/gradle-wrapper.properties android/gradle/wrapper/gradle-wrapper.properties
+
+      - name: Preparar AndroidManifest
         run: python3 scripts/prepare_android.py
 
       - name: Instalar dependências
