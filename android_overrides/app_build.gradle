@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "br.shop.memoriaitaboraiense.acervo_itaborai"
+    namespace = "br.shop.memoriaitaboraiense.acervoitaboraiense"
     compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "br.shop.memoriaitaboraiense.acervo_itaborai"
+        applicationId = "br.shop.memoriaitaboraiense.acervoitaboraiense"
         minSdk = 24
         targetSdk = 35
         versionCode = flutter.versionCode
