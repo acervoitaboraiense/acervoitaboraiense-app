@@ -6,6 +6,7 @@ import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
 import 'package:just_audio/just_audio.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const String kBaseUrl = 'https://memoriaitaboraiense.shop/api.php';
 const Color kPrimary   = Color(0xFF291F75);
@@ -25,6 +26,7 @@ class AcervoApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: kPrimary),
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFFF5F4FA),
+        textTheme: GoogleFonts.latoTextTheme(),
       ),
       home: const HomePage(),
     );
