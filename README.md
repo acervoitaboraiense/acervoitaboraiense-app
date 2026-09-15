@@ -29,8 +29,8 @@ Antes de começar, certifique-se de ter o ambiente Flutter configurado na sua m�
 
 1. **Clonar o Repositório:**
    ```bash
-   git clone https://github.com/acervoitaboraiense/acervoitaboraiense-app.git
-   cd acervoitaboraiense-app
+   git clone https://github.com/acervoitaboraiense/aplicativo-acervoitaboraiense.git
+   cd aplicativo-acervoitaboraiense
    ```
 
 2. **Instalar as Dependências:**
