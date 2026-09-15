@@ -29,6 +29,9 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Instalar dependências
+        run: flutter pub get
+
       - name: Gerar estrutura Android (temporário)
         run: |
           flutter create --platforms=android \
@@ -38,8 +41,12 @@ jobs:
           cp -r /tmp/scaffold/android .
           sed -i '/<application/i \    <uses-permission android:name="android.permission.INTERNET" \/>' android/app/src/main/AndroidManifest.xml
 
-      - name: Instalar dependências
-        run: flutter pub get
+      - name: Gerar ícones do App
+        run: dart run flutter_launcher_icons
+
+      - name: Alterar o nome do App (label)
+        run: |
+          sed -i 's/android:label="acervo_itaborai"/android:label="Acervo Itaboraiense"/' android/app/src/main/AndroidManifest.xml
 
       - name: Build do APK (release)
         run: flutter build apk --release
