@@ -12,7 +12,7 @@ class SobrePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sobre o projeto'),
+        title: const Text('Sobre o Projeto'),
         backgroundColor: kPrimary,
         foregroundColor: Colors.white,
       ),
@@ -53,10 +53,9 @@ class SobrePage extends StatelessWidget {
             'cidade de Itaboraí, no estado do Rio de Janeiro. Reunimos em um '
             'só lugar documentos, fotografias, áudios, vídeos e outros '
             'registros que contam a história da cidade e de sua gente.\n\n'
-            'Este site não é uma loja virtual. Não vendemos produtos, não '
-            'fazemos publicidade e não temos fins comerciais. Trata-se de um '
-            'espaço colaborativo e sem fins lucrativos, criado para que '
-            'moradores, pesquisadores, estudantes e curiosos possam consultar '
+            'Trata-se de um espaço colaborativo e sem fins lucrativos, '
+            'criado para que moradores, pesquisadores, e estudantes possam '
+            'consultar e contruibuir com as raízes antigas de Itaboraí.'
             'e contribuir com o patrimônio histórico de Itaboraí.',
             style: TextStyle(fontSize: 15, height: 1.6),
           ),
@@ -64,7 +63,7 @@ class SobrePage extends StatelessWidget {
           const SizedBox(height: 28),
 
           const Text(
-            'O que você encontra aqui',
+            'O que você encontrará aqui',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -75,7 +74,7 @@ class SobrePage extends StatelessWidget {
           _itemLista(
             Icons.menu_book_outlined,
             'Livros e documentos históricos',
-            'Obras raras, registros oficiais e papéis antigos',
+            'Obras criadas em Itaboraí, registros oficiais e papéis antigos',
           ),
           _itemLista(
             Icons.photo_camera_outlined,
@@ -110,7 +109,7 @@ class SobrePage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Text(
-            'Atualmente o acervo está hospedado no domínio '
+            'Atualmente, o acervo está hospedado no domínio '
             'memoriaitaboraiense.shop, mas em breve migraremos para o '
             'endereço acervoitaboraiense.org.\n\n'
             'A mudança não afetará o conteúdo nem o acesso: tudo continuará '
@@ -132,7 +131,7 @@ class SobrePage extends StatelessWidget {
           const Text(
             'Se você possui documentos, fotos ou gravações relacionadas à '
             'história de Itaboraí, sua contribuição é muito bem-vinda. Basta '
-            'acessar a página inicial, escolher a categoria correspondente e '
+            'acessar a página inicial do site, escolher a categoria correspondente e '
             'enviar o arquivo com as informações disponíveis.\n\n'
             'O acervo cresce com a participação da comunidade. Cada material '
             'enviado é uma peça a mais na construção coletiva da memória da '
@@ -185,23 +184,6 @@ class SobrePage extends StatelessWidget {
               },
             ),
           ),
-
-          const SizedBox(height: 32),
-          Center(
-            child: Text(
-              '© 2026 Acervo Itaboraiense',
-              style: TextStyle(
-                color: Colors.grey.shade600,
-                fontStyle: FontStyle.italic,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const SizedBox(height: 20),
-        ],
-      ),
-    );
-  }
 
   Widget _itemLista(IconData icon, String titulo, String descricao) {
     return Padding(
