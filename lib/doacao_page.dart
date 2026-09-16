@@ -53,7 +53,7 @@ class DoacaoPage extends StatelessWidget {
                 Icon(Icons.favorite, color: Colors.white, size: 46),
                 SizedBox(height: 12),
                 Text(
-                  'Sua doação mantém viva\a memória de Itaboraí',
+                  'Uma doação, por menor\ que seja, pode salvar milhares\ de acervos.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -68,12 +68,12 @@ class DoacaoPage extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          const Text('O que fazemos com o valor', style: _tituloSecao),
+          const Text('O que fazemos com o valor?', style: _tituloSecao),
           const SizedBox(height: 12),
-          _itemImpacto(Icons.cloud_outlined, 'Hospedagem e domínio', 'Mantém o site e o app no ar'),
+          _itemImpacto(Icons.cloud_outlined, 'Hospedagem e domínio', 'Mantém o site e o aplicativo no ar'),
           _itemImpacto(Icons.camera_alt_outlined, 'Digitalização', 'Preserva novos documentos e fotos'),
           _itemImpacto(Icons.build_outlined, 'Manutenção', 'Correções, melhorias e novas funções'),
-          _itemImpacto(Icons.groups_outlined, 'Comunidade', 'Ações de preservação da memória'),
+          _itemImpacto(Icons.groups_outlined, 'Comunidade', 'Ações de preservação dentro da organização'),
 
           const SizedBox(height: 24),
 
@@ -92,7 +92,7 @@ class DoacaoPage extends StatelessWidget {
                     Icon(Icons.visibility_outlined,
                         color: Colors.amber.shade900, size: 20),
                     const SizedBox(width: 8),
-                    Text('Transparência total',
+                    Text('Divisão do valor recebido:',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.amber.shade900)),
@@ -100,11 +100,10 @@ class DoacaoPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Divisão do valor recebido:\n'
-                  '• 30% — Desenvolvedor (manutenção do app)\n'
-                  '• 40% — Hospedagem e domínio\n'
-                  '• 20% — Digitalização de acervos\n'
-                  '• 10% — Reserva para imprevistos',
+                  '• 10% para o idealizador\n'
+                  '• 30% para a hospedagem e domínio do site\n'
+                  '• 40% para a digitalização de acervos\n'
+                  '• 20% de reserva para imprevistos',
                   style: TextStyle(fontSize: 13, height: 1.55),
                 ),
               ],
@@ -197,30 +196,16 @@ class DoacaoPage extends StatelessWidget {
             child: Column(
               children: const [
                 _AltItem(icon: Icons.share_outlined,
-                    texto: 'Compartilhe o app com amigos e familiares'),
+                    texto: 'Compartilhe o aplicativo com amigos e familiares'),
                 SizedBox(height: 12),
                 _AltItem(icon: Icons.photo_library_outlined,
-                    texto: 'Envie fotos e documentos antigos para o acervo'),
+                    texto: 'Envie fotos e documentos antigos para o Acervo Itaboraiense'),
                 SizedBox(height: 12),
                 _AltItem(icon: Icons.school_outlined,
-                    texto: 'Sugira o acervo para professores e pesquisadores'),
+                    texto: 'Sugira o Acervo Itaboraiense para professores e pesquisadores'),
               ],
             ),
           ),
-
-          const SizedBox(height: 32),
-          Center(
-            child: Text(
-              'Muito obrigado(a) por apoiar a memória de Itaboraí.',
-              style: TextStyle(color: Colors.grey.shade600, fontStyle: FontStyle.italic),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const SizedBox(height: 24),
-        ],
-      ),
-    );
-  }
 
   Widget _itemImpacto(IconData icon, String titulo, String descricao) {
     return Padding(
