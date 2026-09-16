@@ -1,13 +1,14 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'drawer_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:just_audio/just_audio.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'drawer_menu.dart';
 
 const String kBaseUrl = 'https://memoriaitaboraiense.shop/api.php';
 const Color kPrimary   = Color(0xFF291F75);
@@ -146,6 +147,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const AppDrawer(),
+
       appBar: AppBar(
         title: const Text('Acervo Itaboraiense'),
         backgroundColor: kPrimary,
@@ -243,8 +246,9 @@ class _HomePageState extends State<HomePage> {
       child: Align(
         alignment: Alignment.centerLeft,
         child: Text(
-          '$_total item(ns) no acervo',
-          style: const TextStyle(color: kSecondary, fontSize: 12, fontWeight: FontWeight.w600),
+          '$_total item(ns) no total',
+          style: const TextStyle(
+              color: kSecondary, fontSize: 12, fontWeight: FontWeight.w600),
         ),
       ),
     );
@@ -268,30 +272,15 @@ class _HomePageState extends State<HomePage> {
     String titulo;
     switch (erro.tipo) {
       case TipoErro.semInternet:
-        icone = Icons.wifi_off_rounded;
-        cor = Colors.orange;
-        titulo = 'Sem conexão';
-        break;
+        icone = Icons.wifi_off_rounded; cor = Colors.orange; titulo = 'Sem conexão'; break;
       case TipoErro.servidor:
-        icone = Icons.cloud_off_rounded;
-        cor = Colors.red;
-        titulo = 'Servidor indisponível';
-        break;
+        icone = Icons.cloud_off_rounded; cor = Colors.red; titulo = 'Servidor indisponível'; break;
       case TipoErro.naoEncontrado:
-        icone = Icons.search_off_rounded;
-        cor = Colors.blueGrey;
-        titulo = 'Não encontrado';
-        break;
+        icone = Icons.search_off_rounded; cor = Colors.blueGrey; titulo = 'Não encontrado'; break;
       case TipoErro.vazio:
-        icone = Icons.inbox_outlined;
-        cor = Colors.blueGrey;
-        titulo = 'Acervo vazio';
-        break;
+        icone = Icons.inbox_outlined; cor = Colors.blueGrey; titulo = 'Acervo vazio'; break;
       case TipoErro.generico:
-        icone = Icons.error_outline_rounded;
-        cor = Colors.red;
-        titulo = 'Erro';
-        break;
+        icone = Icons.error_outline_rounded; cor = Colors.red; titulo = 'Erro'; break;
     }
 
     return Center(
@@ -303,8 +292,7 @@ class _HomePageState extends State<HomePage> {
             Icon(icone, size: 72, color: cor),
             const SizedBox(height: 16),
             Text(titulo,
-                style: TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.bold, color: cor)),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: cor)),
             const SizedBox(height: 10),
             Text(erro.mensagem,
                 textAlign: TextAlign.center,
@@ -404,17 +392,13 @@ class _HomePageState extends State<HomePage> {
         children: [
           IconButton(
             icon: const Icon(Icons.chevron_left),
-            onPressed: _pagina > 1
-                ? () { setState(() => _pagina--); _carregar(); }
-                : null,
+            onPressed: _pagina > 1 ? () { setState(() => _pagina--); _carregar(); } : null,
           ),
           Text('$_pagina / $_totalPaginas',
               style: const TextStyle(fontWeight: FontWeight.bold)),
           IconButton(
             icon: const Icon(Icons.chevron_right),
-            onPressed: _pagina < _totalPaginas
-                ? () { setState(() => _pagina++); _carregar(); }
-                : null,
+            onPressed: _pagina < _totalPaginas ? () { setState(() => _pagina++); _carregar(); } : null,
           ),
         ],
       ),
@@ -510,10 +494,7 @@ class _DetalhePageState extends State<DetalhePage> {
       context,
       MaterialPageRoute(
         builder: (_) => VisualizadorPage(
-          url: url,
-          extensao: ext,
-          titulo: titulo,
-          nomeOriginal: nomeOriginal,
+          url: url, extensao: ext, titulo: titulo, nomeOriginal: nomeOriginal,
         ),
       ),
     );
@@ -540,14 +521,10 @@ class _DetalhePageState extends State<DetalhePage> {
     IconData icone;
     Color cor;
     switch (e.tipo) {
-      case TipoErro.semInternet:
-        icone = Icons.wifi_off_rounded; cor = Colors.orange; break;
-      case TipoErro.servidor:
-        icone = Icons.cloud_off_rounded; cor = Colors.red; break;
-      case TipoErro.naoEncontrado:
-        icone = Icons.search_off_rounded; cor = Colors.blueGrey; break;
-      default:
-        icone = Icons.error_outline_rounded; cor = Colors.red;
+      case TipoErro.semInternet: icone = Icons.wifi_off_rounded; cor = Colors.orange; break;
+      case TipoErro.servidor: icone = Icons.cloud_off_rounded; cor = Colors.red; break;
+      case TipoErro.naoEncontrado: icone = Icons.search_off_rounded; cor = Colors.blueGrey; break;
+      default: icone = Icons.error_outline_rounded; cor = Colors.red;
     }
     return Center(
       child: Padding(
@@ -698,18 +675,16 @@ class _DetalhePageState extends State<DetalhePage> {
               child: FilledButton.icon(
                 icon: const Icon(Icons.visibility_outlined),
                 label: Text(
-                  ehImagem(ext) ? 'Ver imagem no aplicativo'
-                  : ehPdf(ext)    ? 'Ler PDF no aplicativo'
-                  : ehAudio(ext)  ? 'Ouvir áudio no aplicativo'
-                  : 'Ler texto no aplicativo',
+                  ehImagem(ext) ? 'Ver imagem aqui'
+                  : ehPdf(ext)    ? 'Ler PDF aqui'
+                  : ehAudio(ext)  ? 'Ouvir áudio aqui'
+                  : 'Ler texto aqui',
                 ),
                 style: FilledButton.styleFrom(
                   backgroundColor: kPrimary,
                   padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
-                onPressed: () => _abrirVisualizador(
-                  url, ext, titulo, arquivo['nome_original'] ?? '',
-                ),
+                onPressed: () => _abrirVisualizador(url, ext, titulo, arquivo['nome_original'] ?? ''),
               ),
             ),
           if (url.isNotEmpty) ...[
@@ -761,7 +736,7 @@ class _DetalhePageState extends State<DetalhePage> {
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                vazio ? '—' : valor,
+                vazio ? '-' : valor,
                 style: TextStyle(
                   fontSize: 14,
                   color: vazio ? Colors.black38 : Colors.black87,
@@ -807,9 +782,8 @@ class VisualizadorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const AppDrawer(),
       appBar: AppBar(
-        title: const Text('Acervo Itaboraiense'),
+        title: Text(titulo, overflow: TextOverflow.ellipsis),
         backgroundColor: kPrimary,
         foregroundColor: Colors.white,
       ),
@@ -1062,10 +1036,7 @@ class _TxtViewerState extends State<_TxtViewer> {
       color: Colors.white,
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
-        child: SelectableText(
-          _conteudo!,
-          style: const TextStyle(fontSize: 14, height: 1.5),
-        ),
+        child: SelectableText(_conteudo!, style: const TextStyle(fontSize: 14, height: 1.5)),
       ),
     );
   }
