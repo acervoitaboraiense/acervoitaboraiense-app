@@ -1,6 +1,6 @@
 # Aplicativo Acervo Itaboraiense
 
-O **Aplicativo Acervo Itaboraiense** é o aplicativo oficial do projeto Acervo Itaboraiense, desenvolvido com o objetivo de preservar, catalogar e difundir a memória histórica, cultural e patrimonial do município de Itaboraí, Rio de Janeiro. O aplicativo atua como uma extensão mobile e interativa [da plataforma](https://memoriaitaboraiense.shop).
+O **Aplicativo Acervo Itaboraiense** é o aplicativo oficial do projeto Acervo Itaboraiense, desenvolvido com o objetivo de preservar, catalogar e difundir a memória histórica, cultural e patrimonial do município de Itaboraí, Rio de Janeiro. O aplicativo atua como uma extensão mobile e interativa da plataforma.
 
 Este projeto foi construído utilizando o framework **Flutter**, permitindo uma experiência performática e fluida.
 
